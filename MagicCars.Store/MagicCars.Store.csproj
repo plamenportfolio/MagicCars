@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68D13365-0B43-4B71-8BFB-C07D1F15CDF0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MagicCars.Store</RootNamespace>
+    <AssemblyName>MagicCars.Store</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="images\footer\icon_fas.jpg" />
+    <Content Include="images\footer\icon_git.jpg" />
+    <Content Include="images\footer\icon_goo.jpg" />
+    <Content Include="images\footer\icon_lin.jpg" />
+    <Content Include="images\footer\icon_plm.jpg" />
+    <Content Include="images\footer\icon_wor.jpg" />
+    <Content Include="images\icon\front-car-icon.ico" />
+    <Content Include="scripts\app\cars.js" />
+    <Content Include="scripts\app\cars3d.js" />
+    <Content Include="scripts\app\local-storage-extensions.js" />
+    <Content Include="scripts\app\storage.js" />
+    <Content Include="scripts\app\carsTemp.js" />
+    <Content Include="scripts\libs\ajaxfileupload.js" />
+    <Content Include="SecondaryFramePages\add.html" />
+    <Content Include="SecondaryFramePages\cars.html" />
+    <Content Include="SecondaryFramePages\HtmlPage1.html" />
+    <Content Include="SecondaryFramePages\styles\style-search.css" />
+    <Content Include="SecondaryFramePages\trip.html" />
+    <Content Include="SecondaryFramePages\search.html" />
+    <Content Include="SecondaryFramePages\styles\style-add.css" />
+    <Content Include="SecondaryFramePages\styles\style-cars.css" />
+    <Content Include="SecondaryFramePages\styles\style-single-3d.css" />
+    <Content Include="SecondaryFramePages\styles\style-trip.css" />
+    <Content Include="SecondaryFramePages\styles\style-view-3d.css" />
+    <Content Include="SecondaryFramePages\styles\style-view.css" />
+    <Content Include="SecondaryFramePages\threed.html" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\add-new.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\audi-a3.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\audi-q5.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\audi-q7.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\bmw-5.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\bmw-x3.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\bmw-x5.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\bugatti-veyron.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\chevrolet-camaro.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\ferrari-f50.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\lamborghini-gallardo.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mazda-3.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mazda-6.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mazda-cx5.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mercedes-g.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mercedes-gl.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\mercedes-glk.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\rover-evoque.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\toyota-rav4.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\vw-golf5.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\vw-passat.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\vw-tiguan.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\vw-touareg.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\cars\vw-transporter.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\home.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\home2.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\search.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\three-d.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\three-view.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\images\trip.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\BinaryLoader.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\camaro\CamaroNoUv_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\f50\F50NoUv_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\GallardoNoUv_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\parts\gallardo_body_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\parts\gallardo_wheel_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\parts\veyron_body_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\parts\veyron_wheel_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\VeyronNoUv_bin.js" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\negx.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\negy.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\negz.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\plam.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\plok.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\plol.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\posx.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\posy.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\posz.jpg" />
+    <Content Include="SecondaryFramePages\ThreeDView\textures\Bridge2\readme.txt" />
+    <Content Include="SecondaryFramePages\trip-rev.html" />
+    <Content Include="scripts\libs\ga.js" />
+    <Content Include="scripts\libs\jquery.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\build\Detector.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\build\three.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\build\three.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\EditorControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\FirstPersonControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\FlyControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\OculusControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\OrbitControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\PathControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\PointerLockControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\TrackballControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\controls\TransformControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\dat.gui.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\Detector.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\OrbitControls.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\stats.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\system.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\three.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\three.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\THREEx.FullScreen.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\THREEx.KeyboardState.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\THREEx.WindowResize.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\libs\tween.min.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\CSS2DRenderer.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\CSS3DRenderer.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\SoftwareRenderer.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\SVGRenderer.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\WebGLDeferredRenderer.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\js\renderers\WebGLRenderer3.js" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\styles\style.css" />
+    <Content Include="SecondaryFramePages\ThreeDIntro\ThreeDFrame.html" />
+    <Content Include="SecondaryFramePages\view-3d.html" />
+    <Content Include="SecondaryFramePages\view.html" />
+    <Content Include="styles\homeStyle.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\SketchRockwell-Bold.ttf" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\camaro\.htaccess" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\camaro\CamaroNoUv_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\f50\.htaccess" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\f50\F50NoUv_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\.htaccess" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\GallardoNoUv_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\parts\gallardo_body_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\gallardo\parts\gallardo_wheel_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\.htaccess" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\parts\veyron_body_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\parts\veyron_wheel_bin.bin" />
+    <Content Include="SecondaryFramePages\ThreeDView\obj\veyron\VeyronNoUv_bin.bin" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:37126/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

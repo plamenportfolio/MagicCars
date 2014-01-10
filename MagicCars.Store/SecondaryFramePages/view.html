@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+        <script src="../scripts/app/local-storage-extensions.js"></script>
+    <script src="../scripts/app/storage.js"></script>
+    <script src="../scripts/app/cars.js"></script>
+    <script src="../scripts/app/carsTemp.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link href="styles/style-view.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper" class="wrapper-cl">
+        <div id="image-box" class="image-boxcl"></div>
+
+        <div id="heather-box" class="heather-boxcl"></div>
+
+        <div id="model-box" class="model-boxcl"></div>
+
+        <div id="price-box" class="price-boxcl"></div>
+
+        <button id="three-d-button" class="thee-d-class">3D View</button>
+
+    </div>
+
+    <script>
+
+        carsTemp.init();        
+        var lastCar = carsTemp.getLastCar();
+        //initializeButton(lastCar);
+
+        var imageDiv = document.getElementById("image-box");
+        imageDiv.innerHTML = '<img src="./ThreeDIntro/images/cars/' + lastCar.urlPic + '" />';
+
+        var heatherDiv = document.getElementById("heather-box");
+        heatherDiv.innerHTML = '<h1>' + lastCar.company + '</h1>';
+
+        var modelDiv = document.getElementById("model-box");
+        modelDiv.innerHTML = '<h1>' + lastCar.model + '</h1>';
+
+        var priceDiv = document.getElementById("price-box");
+        priceDiv.innerHTML = '<h2>' + lastCar.price + '.00 лв.' + '</h2>';
+
+        $("#three-d-button").on('click', function () {
+            if (lastCar.urlRev1 == "no" || lastCar.urlRev1 == undefined || lastCar.urlRev1 == null || lastCar.urlRev1 == "") {
+
+
+                $("button").hover(function () {
+                    $("button").css("background-color", "transparent");
+                }, function () {
+                    $("button").css("background-color", "transparent");
+                });
+
+                var getButton = document.getElementById("three-d-button");
+                //getButton.disabled = true;
+
+                return;
+            }
+            window.location.href = 'view-3d.html';         
+        })
+
+        function initializeButton(lastCar) {
+            if (lastCar.urlRev1 == "no" || lastCar.urlRev1 == undefined || lastCar.urlRev1 == null || lastCar.urlRev1 == "") {
+
+
+                //$("button").hover(function () {
+                //    $("button").css("background-color", "transparent");
+                //}, function () {
+                //    $("button").css("background-color", "transparent");
+                //});
+
+                var getButton = document.getElementById("three-d-button");
+                getButton.innerHTML = "3D View - not active";
+                //getButton.disabled = true;
+
+                return;
+            }
+        }
+
+    </script>
+</body>
+</html>

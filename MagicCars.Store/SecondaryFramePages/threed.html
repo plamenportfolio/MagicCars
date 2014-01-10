@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Just cars for 3D</title>
+    <script src="../scripts/app/local-storage-extensions.js"></script>
+    <script src="../scripts/app/storage.js"></script>
+    <script src="../scripts/app/cars.js"></script>
+    <script src="../scripts/app/carsTemp.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link href="./styles/style-cars.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="./ThreeDIntro/js/libs/three.min.js"></script>
+    <script src="./ThreeDIntro/js/libs/Detector.js"></script>
+	<script src="./ThreeDIntro/js/libs/tween.min.js"></script>
+	<script src="./ThreeDIntro/js/controls/TrackballControls.js"></script>
+	<script src="./ThreeDIntro/js/renderers/CSS3DRenderer.js"></script>
+    <div id="container"></div>   
+    <div id="menu">     
+		<button id="table">TABLE</button>
+		<button id="sphere">SPHERE</button>
+		<button id="fly">FLY</button>
+        <button id="next">NEXT PAGE</button>
+	</div>
+    <script>
+
+        cars.init();
+        var table = [];
+        table = cars.getThreeDCars();
+
+        var camera, scene, renderer;
+        var controls;
+
+        var objects = [];
+        var targets = { table: [], sphere: [], fly: [] };
+        var startIndex = 0;
+        var endIndex = Math.min(table.length, 15);
+        var maxIndex = table.length;
+        var pageIndex = 1;
+
+        var pageMaxIndex = maxIndex / endIndex;
+        var remainder = maxIndex % endIndex;
+
+        if (remainder != 0) {
+            pageMaxIndex++;
+        }
+
+        init(startIndex, endIndex);
+        animate();
+
+        function init(startIndex, endIndex) {
+
+            camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.z = 3000;
+
+            scene = new THREE.Scene();
+
+            // table
+            //<img src="./SliderFiles/images/netslider-01s.jpg" />
+            //<a href="http://www.w3schools.com/" target="_blank">Visit W3Schools!</a> 
+            //<a href="javascript:parent.window.location.href='../WpfPage.html'">WPF Applications - >></a>
+            var specialCounter1 = 0;
+            var specialCounter2 = 0;
+            for (var i = startIndex; i < endIndex; i++) {
+
+                var element = document.createElement('div');
+                element.className = 'element';
+                //element.style.backgroundColor = 'rgba(215,190,207,' + (Math.random() * 0.5 + 0.25) + ')';
+                element.style.backgroundColor = generateRandomColor();
+                element.innerHTML = '<a href="view.html" />'
+                var number = document.createElement('div');
+                number.className = 'number';
+                number.textContent = table[i].year;
+                element.appendChild(number);
+
+                var symbol = document.createElement('div');
+                symbol.className = 'symbol';
+                symbol.innerHTML = '<a title="Open the car details" href="#" onclick="navigateToOtherPage(' + i + ');return false;">' + '<img src=./ThreeDIntro/images/cars/' + table[i].urlPic + ' /></a>';
+                element.appendChild(symbol);
+
+                var details = document.createElement('div');
+                details.className = 'details';
+                details.innerHTML = '<a title="Open the car details" href="#" onclick="navigateToOtherPage(' + i + ';return false;">' + table[i].company + ' ' + table[i].model + '</a>';
+                element.appendChild(details);
+
+                var object = new THREE.CSS3DObject(element);
+                object.position.x = Math.random() * 6000 - 3000;
+                object.position.y = Math.random() * 6000 - 3000;
+                object.position.z = Math.random() * 6000 - 3000;
+                scene.add(object);
+
+                objects.push(object);
+
+                //
+                specialCounter1 = i % 5;
+
+                if (specialCounter1 == 0) {
+                    specialCounter2++;
+                }
+
+                var object = new THREE.Object3D();
+                object.position.x = (specialCounter1 * 630) - 1330;
+                object.position.y = -(specialCounter2 * 450) + 990;
+
+                targets.table.push(object);
+
+            }
+
+            // sphere
+
+            var vector = new THREE.Vector3();
+
+            for (var i = 0, l = objects.length; i < l; i++) {
+
+                var phi = Math.acos(-1 + (2 * i) / l);
+                var theta = Math.sqrt(l * Math.PI) * phi;
+
+                var object = new THREE.Object3D();
+
+                object.position.x = 800 * Math.cos(theta) * Math.sin(phi);
+                object.position.y = 800 * Math.sin(theta) * Math.sin(phi);
+                object.position.z = 800 * Math.cos(phi);
+
+                vector.copy(object.position).multiplyScalar(2);
+
+                object.lookAt(vector);
+
+                targets.sphere.push(object);
+
+            }
+
+
+            // fly
+
+            for (var i = 0; i < objects.length; i++) {
+
+                var object = new THREE.Object3D();
+
+                object.position.x = randomNumber(-10000, 10000);
+                object.position.y = randomNumber(-10000, 10000);
+                object.position.z = randomNumber(-1000, 1000);
+
+                targets.fly.push(object);
+
+            }
+
+            //
+
+            renderer = new THREE.CSS3DRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.domElement.style.position = 'absolute';
+            document.getElementById('container').appendChild(renderer.domElement);
+
+            //
+
+            controls = new THREE.TrackballControls(camera, renderer.domElement);
+            controls.rotateSpeed = 0.5;
+            controls.minDistance = 500;
+            controls.maxDistance = 6000;
+            controls.addEventListener('change', render);
+
+            var button = document.getElementById('table');
+            button.addEventListener('click', function (event) {
+
+                transform(targets.table, 2000);
+
+            }, false);
+
+            var button = document.getElementById('sphere');
+            button.addEventListener('click', function (event) {
+
+                transform(targets.sphere, 2000);
+
+            }, false);
+
+            var button = document.getElementById('fly');
+            button.addEventListener('click', function (event) {
+
+                transform(targets.fly, 4000);
+
+            }, false);
+
+            var button = document.getElementById('next');
+            button.addEventListener('click', function (event) {
+
+                if (pageIndex < pageMaxIndex) {
+                    pageIndex++;
+                    startIndex += 15;
+                    endIndex = maxIndex;
+                }
+                else {
+                    pageIndex = 1;
+                    startIndex = 0;
+                    endIndex = 15;
+                }
+
+                var test = document.getElementById('container');
+                test.innerHTML = "";
+
+                init(startIndex, endIndex);
+
+            }, false);
+
+            transform(targets.table, 2000);
+
+            //
+
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function transform(targets, duration) {
+
+            TWEEN.removeAll();
+
+            for (var i = 0; i < objects.length; i++) {
+
+                var object = objects[i];
+                var target = targets[i];
+
+                new TWEEN.Tween(object.position)
+                    .to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+                    .easing(TWEEN.Easing.Exponential.InOut)
+                    .start();
+
+                new TWEEN.Tween(object.rotation)
+                    .to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+                    .easing(TWEEN.Easing.Exponential.InOut)
+                    .start();
+
+            }
+
+            new TWEEN.Tween(this)
+                .to({}, duration * 2)
+                .onUpdate(render)
+                .start();
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            render();
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            TWEEN.update();
+
+            controls.update();
+
+        }
+
+        function render() {
+
+            renderer.render(scene, camera);
+        }
+
+
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function generateRandomColor() {
+            var red = randomNumber(0, 255);
+            var green = randomNumber(0, 255);
+            var blue = randomNumber(0, 255);
+
+            return "rgba(" + red + ", " + green + ", " + blue + ", " + (Math.random() * 0.5 + 0.25) + ')';
+        }
+
+        function navigateToOtherPage(i) {
+
+            var tableCar = table[i];
+            carsTemp.init();
+            carsTemp.addCar(tableCar.urlPic, tableCar.urlRev1, tableCar.urlRev2, tableCar.company, tableCar.model, tableCar.year, tableCar.description, tableCar.price);
+
+            window.location.href = 'view-3d.html';
+
+        }
+
+
+		</script>
+</body>
+</html>

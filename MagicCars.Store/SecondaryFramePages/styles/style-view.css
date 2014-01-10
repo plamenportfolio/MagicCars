@@ -1,0 +1,85 @@
+﻿.wrapper-cl {
+    width: 900px;
+    height: 550px;
+    /*box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;*/
+    border-radius:30px;
+    text-align: center;
+    cursor: default;
+    margin:20px auto;
+}
+
+.image-boxcl {
+    width: 580px;
+    height: 400px;
+    box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;
+    border-radius:30px;
+    text-align: center;
+    cursor: default;
+    float: left;
+}
+
+ img {
+        max-height: 360px;
+        max-width: 520px;
+        display: block;
+        margin: 25px auto;
+
+    }
+
+ .heather-boxcl, .model-boxcl, .price-boxcl {
+    width: 200px;
+    height: 80px;
+    box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;
+    border-radius:30px;
+    cursor: default;
+    float: right;
+    margin-right: 50px;
+    margin-top:25px;
+}
+
+ 
+
+#leftcolumn, #rightcolumn {
+    border: 1px solid white;
+    float: left;
+    min-height: 450px;
+    color: white;
+}
+#leftcolumn {
+     width: 250px;
+     background-color: #111;
+}
+#rightcolumn {
+     width: 750px;
+     background-color: #777;
+}
+
+button {
+    color: black;
+    background: transparent;
+    border: 0px;
+    cursor: pointer;
+    border: 5px solid #a8c5dd;
+    border-radius: 10px;
+	text-shadow: 0px -1px 0px #000;
+	-moz-box-shadow: 0px 1px 0px #3a3a3a;
+	text-align: center;
+	font-weight: normal;
+	font-size: 32px;
+	font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+    height:65px; 
+    width:600px;
+    margin: 40px auto;
+}
+
+    button:hover {
+        background-color: rgba(152,152,181,0.5);
+    }
+
+    button:active {
+        color: #000000;
+        background-color: #a8c5dd;
+    }

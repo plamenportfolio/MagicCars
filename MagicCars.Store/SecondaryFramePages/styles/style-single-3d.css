@@ -1,0 +1,15 @@
+﻿body {
+	background: transparent;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	font-family:georgia;
+	text-align:center;
+}
+h1 { }
+
+canvas { pointer-events:none; z-index:10; position:relative; }
+
+
+#oldie { background:rgb(50,0,0) !important; color:#fff !important; margin-top:7em!important }
+

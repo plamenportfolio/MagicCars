@@ -1,0 +1,99 @@
+﻿.wrapper-div {
+    width: 900px;
+    height: 570px;
+    /*box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;*/
+    border-radius:30px;
+    text-align: center;
+    cursor: default;
+    margin:10px auto;
+}
+
+ .heather-boxcl{
+    width: 500px;
+    height: 65px;
+    box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;
+    border-radius:30px;
+    cursor: default;
+     margin:0 auto;
+}
+
+.maps-boxcl {
+    width: 800px;
+    height: 490px;
+    box-shadow: 0px 0px 12px #bdb6b6;
+    border: 1px solid #bdb6b6;
+    border-radius:30px;
+    cursor: default;
+    margin:10px auto;
+}
+
+#map {
+    width: 680px;
+    height: 350px;
+    margin:10px auto;
+}
+
+#s1 , #s2{
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      border:solid 1px #444;
+      font-size: 14px;
+      width: 40%;
+      padding: 7px 8px 7px 30px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd no-repeat 4px 5px;
+	  background: no-repeat 4px 5px, -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(173,173,173) 100%
+           );
+	  background:  no-repeat 4px 5px, -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(173,173,173))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+      margin-top: 3px;
+}
+
+
+#from, #to {
+       -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      border:solid 1px #444;
+      font-size: 14px;
+      width: 63%;
+      padding: 7px 8px 7px 30px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd no-repeat 4px 5px;
+	  background: no-repeat 4px 5px, -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(173,173,173) 100%
+           );
+	  background:  no-repeat 4px 5px, -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(173,173,173))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+      margin-top: 3px;
+}
+
+

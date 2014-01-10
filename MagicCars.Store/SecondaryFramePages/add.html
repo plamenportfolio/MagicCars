@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add a new car</title>
+    <link href="styles/style-add.css" rel="stylesheet" />
+    <script src="../scripts/app/local-storage-extensions.js"></script>
+    <script src="../scripts/app/storage.js"></script>
+    <script src="../scripts/app/cars.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="../scripts/libs/ajaxfileupload.js"></script>
+<!--    <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>-->
+</head>
+<body>
+
+    <div id="registration">
+        <button id="save-car-button" class="ui-btn-right">Add a new car</button>
+
+        <form id="carUserForm" action="" method="post">
+            <fieldset>
+                <p>
+                    <label for="company"></label>
+                    <input id="company" name="company" type="text" class="text" placeholder="Car company" value="" />
+                </p>
+
+                <p>
+                    <label for="model"></label>
+                    <input id="model" name="model" type="text" class="text" placeholder="Car model" value="" />
+                </p>
+
+                <p>
+                    <label for="url1"></label>
+                    <input id="url1" name="url1" type="text" class="text" placeholder="Pic filename" value="" />
+                </p>
+
+                <p>
+                    <label for="url2"></label>
+                    <input id="url2" name="url2" type="text" class="text" placeholder="3D filename" value="" />
+                </p>
+
+                  <p>
+                    <label for="url3"></label>
+                    <input id="url3" name="url3" class="text" placeholder="3D filename" value="" />
+                </p>
+
+                  <p>
+                    <label for="year"></label>
+                    <input id="year" name="year" class="text" placeholder="Year" value="" />
+                </p>
+
+                  <p>
+                    <label for="price"></label>
+                    <input id="pprice" name="price" class="text" placeholder="Price" value="" />
+                </p>
+
+                  <p>
+                    <label for="description"></label>
+                    <input id="description" name="description" class="text" placeholder="Car description" value="" />
+                </p>
+
+            </fieldset>
+
+        </form>
+    </div>
+
+    <script>
+            //$(document).ready(function () {
+            //    $("#fileuploader").uploadFile({
+            //        url: 'doajaxfileupload.php',
+            //        fileName: "myfile"
+            //    });
+            //});
+
+            cars.init();
+
+            $("#save-car-button").on('click', function () {
+
+
+                //var xhr = new XMLHttpRequest();
+                //xhr.file = file; // not necessary if you create scopes like this
+
+                //xhr.addEventListener('progress', function (e) {
+                //    var done = e.position || e.loaded, total = e.totalSize || e.total;
+                //    console.log('xhr progress: ' + (Math.floor(done / total * 1000) / 10) + '%');
+                //}, false);
+
+                //if (xhr.upload) {
+                //    xhr.upload.onprogress = function (e) {
+                //        var done = e.position || e.loaded, total = e.totalSize || e.total;
+                //        console.log('xhr.upload progress: ' + done + ' / ' + total + ' = ' + (Math.floor(done / total * 1000) / 10) + '%');
+                //    };
+                //}
+
+                //xhr.onreadystatechange = function (e) {
+                //    if (4 == this.readyState) {
+                //        console.log(['xhr upload complete', e]);
+                //    }
+                //};
+
+                //xhr.open('post', url, true);
+                //xhr.send(file);
+
+       
+            //var test = $('#image-file').val();
+
+            var urlPic = $('#url1').val();
+            var urlRev1 = $('#url2').val();
+            var urlRev2 = $('#url3').val();
+            var company = $('#company').val();
+            var model = $('#model').val();
+            var year = $('#year').val();
+            var description = $('#description').val();
+            var price = $('#pprice').val();
+
+
+
+            if (urlPic == undefined || urlPic.trim() == "" || urlRev1 == undefined || urlRev1.trim() == "" || 
+                company == undefined || company.trim() == "" || 
+                model == undefined || model.trim() == "" || year == undefined || year.trim() == "" || 
+                description == undefined || description.trim() == "" || price == undefined || price.trim() == "") {
+                return;
+            }
+            else {
+                cars.addCar(urlPic, urlRev1, urlRev2, company, model, year, description, price);
+                window.location.href = 'cars.html';
+            }
+         
+            //location.href = "cars.html";
+        })
+
+    </script>
+</body>
+</html>
